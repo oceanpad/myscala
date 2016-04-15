@@ -8,3 +8,5 @@ def test(x:Int)={
 	val xxx =	if (x >0) 1 else (if(x==0) 0 else -1)
 	xxx
 }
+
+git@github.com:oceanpad/myscala.git
