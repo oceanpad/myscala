@@ -36,9 +36,10 @@ class Application extends Controller {
 		request.body.file("picture").map { picture =>
 			val filename = picture.filename
 			val contentType = picture.contentType
-			val getedFile:File = picture.ref.moveTo(new File(s"/tmp/picture/$filename"))
+			val getedFile:File = picture.ref.moveTo(new File(s"/tmp/$filename"))
 			val resultImage = convertImage(getedFile)
-			Ok(org.apache.commons.io.FileUtils.readFileToByteArray(resultImage)).as("image/jpeg")
+			getedFile.delete()
+			Ok(org.apache.commons.io.FileUtils.readFileToByteArray(resultImage)).as("image/png")
 		}.getOrElse {
 			Redirect(routes.Application.index).flashing(
 				"error" -> "Missing file")

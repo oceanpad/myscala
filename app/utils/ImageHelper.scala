@@ -11,6 +11,7 @@ import com.sksamuel.scrimage._
 import com.sksamuel.scrimage.filter._
 import com.sksamuel.scrimage.AwtImage
 import com.sksamuel.scrimage.Image
+import scala.util.Random
 
 class ImageHelper {
 	
@@ -43,55 +44,64 @@ class ImageHelper {
 
 	def chrome(origin:File):File = {
 		val imageInputStream = new FileInputStream(origin)
-		val tempImage = new File("/tmp/chrome.png")
+		val fileName = "/tmp/" + Random.alphanumeric(32) + ".png"
+		val tempImage = new File("./test/resource/TempImage.png")
     Image.fromStream(imageInputStream).filter(ChromeFilter()).output(tempImage)
 	}
 
 	def blur(origin:File):File = {
 		val imageInputStream = new FileInputStream(origin)
-		val tempImage = new File("/tmp/blur.png")
+		val fileName = "/tmp/" + Random.alphanumeric(32) + ".png"
+		val tempImage = new File(fileName)
     Image.fromStream(imageInputStream).filter(BlurFilter).output(tempImage)
 	}
 
 	def colorHalftone(origin:File):File = {
 		val imageInputStream = new FileInputStream(origin)
-		val tempImage = new File("/tmp/colorhalftone.png")
+		val fileName = "/tmp/" + Random.alphanumeric(32) + ".png"
+		val tempImage = new File(fileName)
     Image.fromStream(imageInputStream).filter(ColorHalftoneFilter()).output(tempImage)
 	}
 
 	def edge(origin:File):File = {
 		val imageInputStream = new FileInputStream(origin)
-		val tempImage = new File("/tmp/edge.png")
+		val fileName = "/tmp/" + Random.alphanumeric(32) + ".png"
+		val tempImage = new File(fileName)
     Image.fromStream(imageInputStream).filter(EdgeFilter).output(tempImage)
 	}
 
 	def lensFlare(origin:File):File = {
 		val imageInputStream = new FileInputStream(origin)
-		val tempImage = new File("/tmp/lensflare.png")
+		val fileName = "/tmp/" + Random.alphanumeric(32) + ".png"
+		val tempImage = new File(fileName)
     Image.fromStream(imageInputStream).filter(LensFlareFilter).output(tempImage)
 	}
 	
 	def twirl(origin:File):File = {
 		val imageInputStream = new FileInputStream(origin)
-		val tempImage = new File("/tmp/twirl.png")
+		val fileName = "/tmp/" + Random.alphanumeric(32) + ".png"
+		val tempImage = new File(fileName)
     Image.fromStream(imageInputStream).filter(TwirlFilter(250)).output(tempImage)
 	}
 
 	def oil(origin:File):File = {
 		val imageInputStream = new FileInputStream(origin)
-		val tempImage = new File("/tmp/oil.png")
+		val fileName = "/tmp/" + Random.alphanumeric(32) + ".png"
+		val tempImage = new File(fileName)
     Image.fromStream(imageInputStream).filter(OilFilter()).output(tempImage)
 	}
 
 	def invert(origin:File):File = {
 		val imageInputStream = new FileInputStream(origin)
-		val tempImage = new File("/tmp/invert.png")
+		val fileName = "/tmp/" + Random.alphanumeric(32) + ".png"
+		val tempImage = new File(fileName)
     Image.fromStream(imageInputStream).filter(InvertFilter).output(tempImage)
 	}
 
 	def pointillizeSquare(origin:File):File = {
 		val imageInputStream = new FileInputStream(origin)
-		val tempImage = new File("/tmp/pointillizeSquare.png")
+		val fileName = "/tmp/" + Random.alphanumeric(32) + ".png"
+		val tempImage = new File(fileName)
 		import scala.util.Random
 		import com.sksamuel.scrimage.filter.PointillizeGridType.{ Triangular, Octangal, Hexagonal, Square }
 		val random:Int = new Random().nextInt(5)
