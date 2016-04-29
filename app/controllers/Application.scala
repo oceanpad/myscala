@@ -10,6 +10,9 @@ import scala.util.Random
 
 import utils.ImageHelper
 
+import java.time.format.DateTimeFormatter
+import java.time.ZonedDateTime
+
 class Application extends Controller {
 
   def index = Action {
@@ -36,9 +39,9 @@ class Application extends Controller {
 		request.body.file("picture").map { picture =>
 			val filename = picture.filename
 			val contentType = picture.contentType
-			val getedFile:File = picture.ref.moveTo(new File(s"/tmp/$filename"))
+			val fileName = "/tmp/" + ZonedDateTime.now.format(DateTimeFormatter.ISO_INSTANT) + "local" + ".png"
+			val getedFile:File = picture.ref.moveTo(new File(fileName))
 			val resultImage = convertImage(getedFile)
-			getedFile.delete()
 			Ok(org.apache.commons.io.FileUtils.readFileToByteArray(resultImage)).as("image/png")
 		}.getOrElse {
 			Redirect(routes.Application.index).flashing(
