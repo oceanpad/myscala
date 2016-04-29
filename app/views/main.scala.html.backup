@@ -1,0 +1,64 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+				<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+ $("body").click(function() {
+
+// $.ajax({
+    // type:"post",
+    // url:"https://kartedev1.ikina.asia/2/kartes/photos",
+    // dataType:'json',
+    // headers:{
+    //          "Content-Type":"application/json",
+    //          "Authorization":"token d0c81126c81245cdbc26b5092e91dd28"
+    //       },
+    // data:JSON.stringify({"karte_id":1,"photos":[{"photo_type":1,"photo_data":""}]}),
+    // contentType:"application/json; charset=utf-8",
+    // crossDomain: true,
+    // success: function(json_data) {
+    //         console.log(json_data);
+    //       },
+    //       error: function(json_data) {
+    //         console.log('error');
+    //       },
+    // xhrFields:{"withCredentials":true}
+// });
+
+// var goodjson = JSON.stringify({"karte_id":1,"photos":[{"photo_type":1,"photo_data":""}]})
+
+// $.ajax({
+//     type:"post",
+//     url:"http://192.168.1.21:9000/2/kartes/photos",
+//     dataType:'json',
+//     headers:{
+//              "Content-Type":"application/json",
+//              "Authorization":"token d8ae85f5a20e4375b030d160390ba252"
+//           },
+//     data:goodjson,
+//     contentType:"application/json; charset=utf-8",
+//     // crossDomain: true,
+//     success: function(json_data) {
+//            // console.log(json_data);
+//           },
+//           error: function(json_data) {
+//             //console.log('error');
+//           },
+//     xhrFields:{"withCredentials":true}
+// });
+});
+});
+</script>
+</head>
+<body>
+<p><button name="login",id="login",type="button">login</button></p>
+</body>
+</html>
